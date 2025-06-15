@@ -10,7 +10,6 @@ Quick guide to get a Palo Alto firewall (PA-Series/VM) running for a simple LAN-
 
 ## Steps
 1. **Connect to Firewall**
-   
-   ssh 192.168.1.1
-   # or GUI at https://192.168.1.1
-   ping 192.168.1.1`
+   - ssh 192.168.1.1
+   - # or GUI at https://192.168.1.1
+   - ping 192.168.1.1
