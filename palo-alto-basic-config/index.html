@@ -1,0 +1,49 @@
+<h1 id="basic-palo-alto-firewall-configuration">Basic Palo Alto Firewall Configuration</h1>
+
+<h2 id="overview">Overview</h2>
+<p>This guide walks you through the initial configuration of a Palo Alto Networks Next-Generation Firewall (NGFW), such as a PA-Series or VM-Series, to get it up and running in a lab or small network. As a network engineer, you’ll learn to set up the management interface, security zones, data interfaces, a basic security policy, and NAT rules to allow internet access. This post is perfect for beginners or those setting up a firewall for the first time.</p>
+
+<ul>
+  <li><strong>Target Audience</strong>: Network engineers new to Palo Alto or setting up a lab.</li>
+  <li><strong>Prerequisites</strong>:
+    <ul>
+      <li>Basic networking knowledge (IP addressing, subnets).</li>
+      <li>Access to a Palo Alto firewall (physical or virtual) with admin credentials (default: <code class="language-plaintext highlighter-rouge">admin/admin</code>).</li>
+      <li>A computer connected to the firewall’s management (MGT) port or console port.</li>
+      <li>Internet access for license activation and updates.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="key-concepts">Key Concepts</h2>
+<ul>
+  <li><strong>Management Interface</strong>: Used for GUI/CLI access, typically on the MGT port (default IP: <code class="language-plaintext highlighter-rouge">192.168.1.1/24</code>).</li>
+  <li><strong>Security Zones</strong>: Logical groupings (e.g., <code class="language-plaintext highlighter-rouge">trust</code>, <code class="language-plaintext highlighter-rouge">untrust</code>) to control traffic between interfaces.</li>
+  <li><strong>Virtual Router</strong>: Handles routing, including static routes for network connectivity.</li>
+  <li><strong>Security Policies</strong>: Rules to allow or block traffic based on source, destination, and application.</li>
+  <li><strong>NAT Rules</strong>: Translate private IPs to public IPs for internet access.</li>
+</ul>
+
+<h2 id="step-by-step-guide">Step-by-Step Guide</h2>
+<p>Follow these steps to configure a basic Palo Alto firewall setup with a LAN (inside) and WAN (outside) interface, allowing internet access.</p>
+
+<h3 id="1-connect-to-the-firewall">1. Connect to the Firewall</h3>
+<ul>
+  <li><strong>GUI Access</strong>:
+    <ul>
+      <li>Connect an Ethernet cable from your computer to the firewall’s MGT port.</li>
+      <li>Set your computer’s IP to <code class="language-plaintext highlighter-rouge">192.168.1.2/24</code> (gateway: <code class="language-plaintext highlighter-rouge">192.168.1.1</code>).</li>
+      <li>Open a browser and navigate to <code class="language-plaintext highlighter-rouge">https://192.168.1.1</code>.</li>
+      <li>Log in with <code class="language-plaintext highlighter-rouge">admin/admin</code> (change the password later for security).</li>
+    </ul>
+  </li>
+  <li><strong>CLI Access</strong>:
+    <ul>
+      <li>Use a serial console cable (9600-8-N-1) with a terminal emulator (e.g., PuTTY).</li>
+      <li>Alternatively, SSH to <code class="language-plaintext highlighter-rouge">192.168.1.1</code> after setting the management IP.</li>
+    </ul>
+  </li>
+  <li><strong>Verify Connectivity</strong>:
+```bash
+ping 192.168.1.1</li>
+</ul>
