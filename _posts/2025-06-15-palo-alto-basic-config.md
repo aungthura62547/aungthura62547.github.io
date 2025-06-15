@@ -1,3 +1,11 @@
+---
+layout: post
+title: "Palo Alto Basic Config"
+date: 2025-06-15
+categories: [palo-alto, firewall]
+tags: [networking, security]
+---
+
 # Palo Alto Basic Config
 
 ## Basic Palo Alto Firewall Setup
